@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김상언 - PM 포트폴리오</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="static/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación flotante -->
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <div class="nav-logo">김상언</div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">홈</a>
+                <a href="#about" class="nav-link">소개</a>
+                <a href="#projects" class="nav-link">프로젝트</a>
+                <a href="#skills" class="nav-link">기술</a>
+                <a href="#contact" class="nav-link">연락처</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+    <div class="hero-content hero-centered">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">프로세스 개선, 데이터 분석</span>
+                    <span class="title-line">UX 리서치, 개발 구현까지 경험한</span>
+                    <span class="title-highlight">올라운더형 예비 PM입니다.</span>
+                </h1>
+                <p class="hero-description">
+                    컴퓨터정보기술 전공을 바탕으로, 실사용자 테스트와 재고 프로세스 자동화 등<br>
+                    실전 프로젝트를 통해 문제 정의→설계→구현→성과 검증까지의 전 과정을 주도해왔습니다.
+                </p>
+                <div class="hero-cta">
+                    <button class="cta-primary">프로젝트 보기</button>
+                    <!-- Enlace de descarga del CV (coloca tu archivo real en static/cv.pdf) -->
+                    <a href="static/cv.pdf" class="cta-secondary" download="CV_KimSangun.pdf">이력서 다운로드</a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>아래로 스크롤</span>
+        </div>
+    </section>
+
+    <!-- Sección Sobre mí -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">핵심 역량</h2>
+                <p class="section-subtitle">구조를 설계하고 혼란을 줄이며, 사용자가 직관적으로 움직일 수 있는 경험을 설계하는 일에 자신이 있습니다.</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>사용자 중심 설계</h3>
+                    <p>실사용자 테스트와 행동 분석을 통해 직관적인 사용자 경험을 설계합니다.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>데이터 기반 분석</h3>
+                    <p>SQL과 통계적 분석을 활용하여 의미 있는 인사이트를 도출합니다.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>시스템 설계</h3>
+                    <p>문제 진단부터 해결까지 체계적으로 프로젝트 구조를 구조화합니다.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>프로세스 자동화</h3>
+                    <p>Google Apps Script 등을 활용하여 업무 프로세스를 효율화합니다.</p>
+                </div>
+            </div>
+            
+            <div class="about-summary">
+                <div class="summary-content">
+                    <h3>주요 프로젝트 성과</h3>
+                    <div class="achievements">
+                        <div class="achievement">
+                            <div class="achievement-number">20%</div>
+                            <div class="achievement-text">수기 오류 감소</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">30%</div>
+                            <div class="achievement-text">완료 시간 단축</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">901개</div>
+                            <div class="achievement-text">영상 데이터 분석</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">0%</div>
+                            <div class="achievement-text">턴 인식 실패율</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">주요 프로젝트</h2>
+                <p class="section-subtitle">실전 경험을 통해 쌓아온 프로젝트 포트폴리오</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Proyecto 1: Hospital -->
+                <div class="project-card" data-project="hospital">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="project-meta">
+                            <h3>병원 재고 요청 자동화</h3>
+                            <span class="project-tag">프로세스 개선</span>
+                        </div>
+                    </div>
+                    <div class="project-preview">
+                        <!-- Aquí colocar imagen del SIPOC model -->
+                        <img src="./static/sixgma.webp" alt="SIPOC 모델 다이어그램" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <p>Six Sigma 기반 프로세스 개선을 통해 동물병원 재고 요청 시스템을 자동화했습니다.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Google Apps Script</span>
+                            <span class="tech-tag">SIPOC</span>
+                            <span class="tech-tag">SPC Analysis</span>
+                        </div>
+                        <div class="project-results">
+                            <div class="result-item">
+                                <strong>20%</strong> 오류율 감소
+                            </div>
+                            <div class="result-item">
+                                <strong>실시간</strong> 재고 요청 및 추적
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Spotify -->
+                <div class="project-card" data-project="spotify">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fab fa-spotify"></i>
+                        </div>
+                        <div class="project-meta">
+                            <h3>Spotify UX 테스트</h3>
+                            <span class="project-tag">사용성 분석</span>
+                        </div>
+                    </div>
+                    <div class="project-preview">
+                        <!-- Aquí colocar gráfico o screenshot de análisis UX -->
+                        <img src="./static/spotify1.jpg" alt="Spotify UX 분석 결과" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <p>안드로이드 환경에서의 Spotify 인터페이스의 사용성을 테스트하고 개선안 적용을 통해 효과를 확인했습니다.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Think-Aloud</span>
+                            <span class="tech-tag">Before/After Testing</span>
+                            <span class="tech-tag">User Research</span>
+                        </div>
+                        <div class="project-results">
+                            <div class="result-item">
+                                <strong>17개</strong> UX 오류 분석
+                            </div>
+                            <div class="result-item">
+                                <strong>30%</strong> 완료 시간 단축
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: UNO Game -->
+                <div class="project-card" data-project="uno">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="project-meta">
+                            <h3>UNO 사용자 테스트 기반 개발</h3>
+                            <span class="project-tag">제품 개발</span>
+                        </div>
+                    </div>
+                    <div class="project-preview">
+                        <!-- Aquí colocar imagen del diagrama UML o screenshot del juego -->
+                        <img src="./static/uno.png" alt="UNO 게임 UML 다이어그램" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <p>Java 기반 실시간 멀티플레이어 UNO 게임을 기능 중심 프로토타입으로 설계·구현했습니다.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Socket Programming</span>
+                            <span class="tech-tag">핵심 기능 구현</span>
+                        </div>
+                        <div class="project-results">
+                            <div class="result-item">
+                                <strong>100%</strong> 플레이 완주율
+                            </div>
+                            <div class="result-item">
+                                <strong>0%</strong> 턴 인식 실패율
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: YouTube -->
+                <div class="project-card" data-project="youtube">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="project-meta">
+                            <h3>YouTube 트렌드 분석</h3>
+                            <span class="project-tag">데이터 분석</span>
+                        </div>
+                    </div>
+                    <div class="project-preview">
+                        <img src="./static/youtube.png" alt="YouTube 트렌드 분석 대시보드" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <p>SQL을 활용하여 YouTube 콘텐츠 트렌드와 사용자 반응 패턴을 분석했습니다.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">Data Analysis</span>
+                        </div>
+                        <div class="project-results">
+                            <div class="result-item">
+                                <strong>901개</strong> 영상 데이터
+                            </div>
+                            <div class="result-item">
+                                <strong>전략</strong> 인사이트 도출
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para detalles de proyectos -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalContent">
+                <!-- El contenido se cargará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Skills -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">기술 스택</h2>
+                <p class="section-subtitle">프로젝트를 통해 습득한 다양한 기술과 도구들</p>
+            </div>
+            
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>데이터 분석</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL</span>
+                                <span class="skill-level">고급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Google Apps Script</span>
+                                <span class="skill-level">고급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SPC Analysis</span>
+                                <span class="skill-level">중급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="skill-category">
+                    <h3>개발 도구</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Google Apps Script</span>
+                                <span class="skill-level">고급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-level">중급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Socket Programming</span>
+                                <span class="skill-level">중급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <div class="skill-category">
+                    <h3>UX/분석 방법론</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">User Research</span>
+                                <span class="skill-level">고급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Heuristic Evaluation</span>
+                                <span class="skill-level">고급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Quantitative Analysis</span>
+                                <span class="skill-level">중급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>협업 도구</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Microsoft Office Suite</span>
+                                <span class="skill-level">고급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">OneDrive 협업</span>
+                                <span class="skill-level">고급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Notion</span>
+                                <span class="skill-level">중급</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">연락하기</h2>
+                <p class="section-subtitle">새로운 기회에 대해 논의해보세요</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <a href="mailto:sangaunkim1@gmail.com" style="text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/sangaunkim" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>LinkedIn</h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/rachelsakim" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>GitHub</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="contact-form">
+                    <!-- Formulario de contacto con EmailJS -->
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="성함" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="이메일" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="제목" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="메시지를 입력하세요..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="contactSubmit">메시지 보내기</button>
+                        <p id="formStatus" style="margin-top:1rem;font-size:0.9rem;color:var(--text-gray);"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>김상언</h3>
+                    <p>사용자 중심 사고와 데이터 기반 실행력을 갖춘 예비 PM</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sangaunkim" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/rachelsakim" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:sangaunkim1@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 김상언. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- EmailJS SDK (reemplaza las constantes en script.js con tus IDs reales) -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
