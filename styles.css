@@ -1,3 +1,7 @@
+/* Quitar margen superior a los títulos de sección */
+h2.section-title {
+    margin-top: 0 !important;
+}
 /* Reset y Variables */
 * {
     margin: 0;
@@ -68,11 +72,20 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Prevent any sideways/vertical rendering and wrapping */
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    transform: none;
+    rotate: 0deg;
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+
 }
 
 .nav-link {
@@ -83,12 +96,48 @@ body {
     transition: var(--transition);
     padding: 0.5rem 1rem;
     border-radius: 25px;
+        font-size: clamp(0.8rem, 1vw, 1rem);
+    /* Force horizontal text orientation, prevent accidental rotations */
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    white-space: nowrap;
+    transform: none;
+    rotate: 0deg;
+}
+
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    }
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: var(--primary-purple);
     background: rgba(139, 95, 191, 0.1);
+}
+
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    background: rgba(139, 95, 191, 0.1);
+    border-radius: 25px;
+    padding: 0.25rem;
+}
+
+.lang-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lang-btn.active {
+    background: var(--primary-purple);
+    color: white;
 }
 
 .nav-toggle {
@@ -212,11 +261,24 @@ body {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    /* Fluid typography with sane min/max to keep it readable at high zoom */
+    font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
     font-weight: 900;
-    line-height: 1.2;
-    width: 1000px;
+    line-height: 1.4;
+    /* Avoid fixed widths; allow the title to shrink/wrap naturally */
+    inline-size: 100%;
+    max-inline-size: 60rem; /* cap line length for readability */
     margin-bottom: 2rem;
+    margin-inline: auto;  /* center the heading block itself */
+    text-align: center;   /* center lines inside the heading */
+    /* Robust wrapping: prefer natural breaks, but avoid overflow if long strings appear */
+    word-break: keep-all;            /* better for KO/EN readability */
+    overflow-wrap: anywhere;         /* last-resort wrapping to prevent overflow */
+}
+
+/* Make hero title slightly smaller in English */
+html[lang="en"] .hero-title {
+    font-size: clamp(1.4rem, 2.6vw + 0.2rem, 2.8rem);
 }
 
 .title-line {
@@ -230,13 +292,19 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
+    display: block; /* align consistently with .title-line and center properly */
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.2vw + 0.2rem, 1.2rem);
     color: var(--text-gray);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 1.8;
+}
+
+/* Make hero description a bit smaller in English for better balance */
+html[lang="en"] .hero-description {
+    font-size: clamp(0.95rem, 1vw + 0.15rem, 1.05rem);
 }
 
 .hero-cta {
@@ -255,7 +323,7 @@ body {
     padding: 1rem 2rem;
     border-radius: var(--border-radius);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 0.6vw + 0.5rem, 1rem);
     cursor: pointer;
     transition: var(--transition);
     border: none;
@@ -263,6 +331,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-width: 9rem;
 }
 
 .cta-primary {
@@ -359,7 +428,7 @@ body {
 /* Secciones generales */
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3.75rem;
 }
 
 .section-title {
@@ -381,7 +450,7 @@ body {
 
 /* Sección About */
 .about {
-    padding: 8rem 0;
+    padding: 3.75rem 0;
     background: var(--white);
 }
 
@@ -474,7 +543,7 @@ body {
 
 /* Sección Projects */
 .projects {
-    padding: 8rem 0;
+    padding: 3rem 0;
     background: var(--light-gray);
 }
 
@@ -638,7 +707,7 @@ body {
 
 /* Sección Skills */
 .skills {
-    padding: 8rem 0;
+    padding: 3rem 0;
     background: var(--white);
 }
 
@@ -700,7 +769,7 @@ body {
 
 /* Sección Contact */
 .contact {
-    padding: 8rem 0;
+    padding: 3rem 0;
     background: var(--light-gray);
 }
 
@@ -800,7 +869,7 @@ body {
 .footer {
     background: var(--dark-gray);
     color: var(--white);
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
 .footer-content {
@@ -867,6 +936,11 @@ body {
         display: flex;
     }
     
+    .language-switcher {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+    
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -874,7 +948,13 @@ body {
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        max-inline-size: 36rem;
+    }
+
+    /* English-specific reduction on tablet widths */
+    html[lang="en"] .hero-title {
+        font-size: clamp(1.35rem, 4.8vw, 2.05rem);
     }
     
     .hero-cta {
@@ -883,6 +963,7 @@ body {
     }
     
     .section-title {
+        margin-top: 0px;
         font-size: 2rem;
     }
     
@@ -924,7 +1005,13 @@ body {
     }
     
     .hero-title {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 8vw, 2rem);
+        max-inline-size: 28rem;
+    }
+
+    /* English-specific reduction on mobile widths */
+    html[lang="en"] .hero-title {
+        font-size: clamp(1.25rem, 6.4vw, 1.7rem);
     }
     
     .section-header {
@@ -941,5 +1028,12 @@ body {
     
     .achievements {
         grid-template-columns: 1fr;
+    }
+    
+    .language-switcher {
+        position: absolute;
+        top: 1rem;
+        right: 4rem;
+    
     }
 }
