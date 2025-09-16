@@ -83,26 +83,26 @@ const translations = {
         nav_projects: "Projects",
         nav_skills: "Skills",
         nav_contact: "Contact",
-        hero_line1: "All-rounder aspiring PM experienced in",
-        hero_line1b: "Process improvement, Data analysis, Experienced in UX research, and Development implementation.",
+        hero_line1: "Aspiring PM with hands-on experience",
+        hero_line1b: "across UX research, development implementation, data analysis, and process optimization.",
         hero_line2: " ",
         hero_line3: " ",
-        hero_desc: "I have led the entire process from problem definition to design, implementation, and performance verification through practical projects such as real user testing and inventory process automation.",
+        hero_desc: "Through real-world projects like user testing and inventory automation, I’ve driven the full product cycle: problem definition, system design, implementation, and outcome validation.",
         cta_projects: "View Projects",
         cta_resume: "Download Resume",
         scroll_down: "Scroll down",
         
         // About
         about_title: "Core Competencies",
-        about_subtitle: "I am confident in designing experiences that structure and reduce confusion, allowing users to move intuitively.",
+        about_subtitle: "I design user experiences that reduce cognitive load and confusion, combining structure with data-backed decisions to guide intuitive user flow.",
         skill1_title: "User-Centered Design",
-        skill1_desc: "Design intuitive user experiences through real user testing and behavioral analysis.",
+        skill1_desc: "Craft user experiences based on real user feedback, behavioral patterns, and iterative testing.",
         skill2_title: "Data-Driven Analysis",
-        skill2_desc: "Derive meaningful insights using SQL and statistical analysis.",
+        skill2_desc: "Extract actionable insights through SQL queries and statistical methods to support product decisions.",
         skill3_title: "System Design",
-        skill3_desc: "Systematically structure project architecture from problem diagnosis to solution.",
+        skill3_desc: "Structure project architecture from problem framing to scalable solution design, ensuring clarity and consistency.",
         skill4_title: "Process Automation",
-        skill4_desc: "Streamline work processes using tools like Google Apps Script.",
+        skill4_desc: "Automate repetitive workflows using tools like Google Apps Script, improving efficiency and reducing manual errors.",
         achievements_title: "Key Project Achievements",
         achievement1: "Manual error reduction",
         achievement2: "Completion time reduction",
@@ -122,19 +122,19 @@ const translations = {
         project2_tag: "Usability Analysis",
         project2_desc: "Tested the usability of the Spotify interface in the Android environment and confirmed effectiveness through improvement application.",
         project2_result1: "UX errors analyzed",
-    project2_result1_count: "17",
+        project2_result1_count: "17",
         project2_result2: "completion time reduction",
         project3_title: "UNO User Test-Based Development",
         project3_tag: "Product Development",
         project3_desc: "Designed and implemented a Java-based real-time multiplayer UNO game as a feature-focused prototype.",
         project3_result1: "play completion rate",
         project3_result2: "turn recognition failure rate",
-    project3_tech3: "Core Feature Implementation",
+        project3_tech3: "Core Feature Implementation",
         project4_title: "YouTube Trend Analysis",
         project4_tag: "Data Analysis",
         project4_desc: "Analyzed YouTube content trends and user response patterns using SQL.",
         project4_result1: "video data",
-    project4_result1_count: "901",
+        project4_result1_count: "901",
         project4_result2: "Strategic",
         project4_result3: "insights derived",
         
@@ -231,6 +231,21 @@ function setLanguage(lang) {
         if (window.projectDetailsKo && window.projectDetailsEn) {
             window.projectDetails = (lang === 'ko') ? window.projectDetailsKo : window.projectDetailsEn;
         }
+    }
+    // Actualizar enlace de descarga del CV según el idioma
+    try {
+        const resumeLink = document.getElementById('resumeLink');
+        if (resumeLink) {
+            if (lang === 'en') {
+                resumeLink.href = 'static/Resume_Product Manager_KimSangaun.pdf';
+                resumeLink.download = 'Resume_Product_Manager_KimSangaun.pdf';
+            } else {
+                resumeLink.href = 'static/SangaunKim_Korean_Resume.pdf';
+                resumeLink.download = 'SangaunKim_Korean_Resume.pdf';
+            }
+        }
+    } catch (err) {
+        console.warn('Could not update resume link:', err);
     }
     
     // Actualizar los detalles de proyectos en el modal si está abierto
@@ -781,7 +796,7 @@ function initProjectModals() {
             hospital: {
             title: "Hospital Inventory Request Automation",
             description:
-                '<div style="text-align: left; margin-top: 1rem;">To address discrepancies between animal hospital inventory requests and the internal database, I led a <strong>Six Sigma</strong>-based process improvement project. <br><br> From problem diagnosis and user interviews to proposing a <strong>Google Apps Script (GAS)</strong>-based tracking system and conducting <strong>SPC</strong> analysis, I designed and implemented an <strong>End-to-End</strong> practical improvement solution.</div>',
+                '<div style="text-align: left; margin-top: 1rem;">To resolve mismatches in animal hospital inventory requests and the internal database, I led a <strong>Six Sigma</strong>-based process improvement project. <br><br> From problem diagnosis and user interviews to proposing a <strong>Google Apps Script (GAS)</strong>-based tracking system and conducting <strong>SPC</strong> analysis, I designed and implemented an <strong>End-to-End</strong> practical improvement solution.</div>',
             details: `
                     <div class="modal-project-detail">
             
@@ -794,7 +809,7 @@ function initProjectModals() {
                             </li>
                             <li><strong>Current State Analysis & Requirements Gathering:</strong>
                                 <ul>
-                                    <li>Structured the workflow using the <strong>SIPOC model</strong> and conducted <strong>interviews with field staff</strong> to identify actual <strong>bottlenecks and inefficiencies</strong> in the workplace.</li>
+                                    <li>Structured the workflow using the <strong>SIPOC model</strong> and conducted <strong>interviews with field staff</strong> to identify real <strong>real workflow bottlenecks</strong> in the workplace.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -802,13 +817,13 @@ function initProjectModals() {
                         <img src="./static/sixgma1.webp" alt="Hospital Inventory Automation" style="width:100%;border-radius:12px;margin-bottom:1rem;" />
                     
                                 <ul>
-                                    <li>Key problems identified included the <strong>limitations of manual input, duplicate requests, and difficulty tracking request status</strong>.</li>
+                                    <li>Key problems identified included the <strong>manual input challenges, duplicate requests, and difficulty tracking request status</strong>.</li>
                                 </ul>
 
                         <h3>Automation System Design & Implementation:</h3>
                             <ul>
                                 <li>Developed a system using <strong>Google Apps Script</strong>, where inventory requests were automatically collected via a <strong>Web App</strong> and organized in <strong>Google Sheets</strong> in real time.</li>
-                                <li>Designed the user request flow (UI) with <strong>Figma</strong> to ensure clarity and prevent confusion during data entry.</li>
+                                <li>Designed the user request flow (UI) with <strong>Figma</strong> to ensure clarity and reduce user error during data entry.</li>
                             </ul>
 
                         <img src="./static/English-figma.jpg" alt="Hospital Inventory Automation" style="width:100%;border-radius:12px;margin-bottom:1rem;" />
@@ -820,8 +835,8 @@ function initProjectModals() {
 
                         <h3>User-Centered Design & Testing:</h3>
                             <ul>
-                                <li>After a one-month test, staff entries were stored without loss, and managers could track request history at a glance.</li>
-                                <li>This led to a ~6%p error rate reduction, achieving around <strong>20% relative improvement</strong>, one of the project’s KPIs.</li>
+                                <li>After a one-month test, staff entries were safely retained, and managers could track request history at a glance.</li>
+                                <li>This led to a approximately 6% points, achieving around <strong>20% relative improvement</strong>, one of the project’s KPIs.</li>
                                 <li>Using Figma prototypes, the input structure was aligned with real workflows, enabling rapid feedback cycles with stakeholders.</li>
                             </ul>
 
@@ -835,7 +850,7 @@ function initProjectModals() {
                         <img src="./static/sixgma5.webp" alt="Hospital Inventory Automation" style="width:100%;border-radius:12px;margin-bottom:1rem;" />
                         <img src="./static/sixgma6.webp" alt="Hospital Inventory Automation" style="width:100%;border-radius:12px;margin-bottom:1rem;" />
                         <ul>
-                            <li>From a PM perspective, I led <strong>task alignment, priority setting, update cycle management, and feedback integration</strong>.</li>
+                            <li>From a PM perspective, I led <strong>task coordination, priority setting, update cycle management, and feedback integration</strong>.</li>
                         </ul>
 
                         <h3>Process Comparison (BPM):</h3>
@@ -886,7 +901,7 @@ function initProjectModals() {
         spotify: {
         title: "Spotify User Journey Usability Test",
         description:
-            '<div style="text-align: left; margin-top: 1rem;">Designed and conducted a usability test with 5 advanced Spotify users to evaluate the effectiveness of playlist creation guidelines on Android. The analysis combined quantitative metrics and qualitative feedback.<br><br>Rather than limiting the study to documentation review, the test revealed broader UX issues within the Spotify interface, based on observed user confusion and behavior patterns.<br><br>By diagnosing usability issues through behavioral data and proposing concrete improvements—such as adding screenshots and clarifying terminology—follow-up testing demonstrated a 30% reduction in task completion time.</div>',
+            '<div style="text-align: left; margin-top: 1rem;">Designed and conducted a usability test with 5 experienced Spotify users to evaluate the effectiveness of playlist creation guidelines on Android. The analysis combined quantitative metrics and qualitative feedback.<br><br>Instead of merely reviewing the documentation, the test revealed broader UX issues within the Spotify interface, based on observed user confusion and behavior patterns.<br><br>By diagnosing usability issues through behavioral data and proposing concrete improvements—such as adding screenshots and clarifying confusing terms—follow-up testing demonstrated a 30% reduction in task completion time.</div>',
         details: `
                 <div class="modal-project-detail">
                     <h3>Main Tasks & Roles</h3>
@@ -898,17 +913,17 @@ function initProjectModals() {
                             </li>
                             <li><strong>Qualitative Observation & Issue Identification:</strong>
                                 <ul>
-                                    <li>Applied the <strong>Think-Aloud protocol</strong> to observe confusion points and user flows, analyzing 17 distinct errors. Key patterns included confusion in Task 1 (finding Spotify Wrapped), Task 3 (misunderstanding Daylist), and Task 5 (failure to locate Request Collaboration).</li>
+                                    <li>used the <strong>think-aloud method</strong> to observe confusion points and user flows, analyzing 17 distinct errors. Key patterns included confusion in Task 1 (finding Spotify Wrapped), Task 3 (misunderstanding Daylist), and Task 5 (failure to locate Request Collaboration).</li>
                                 </ul>
                             </li>
                             <li><strong>Extended UX Insights:</strong>
                                 <ul>
-                                    <li>Although the initial goal was to validate documentation clarity, the process revealed recurring structural issues in the Spotify interface.</li>
+                                    <li>Although the initial goal was to validate documentation clarity, the process revealed repeated UX structure issues in the Spotify interface.</li>
                                     <li><strong>Examples:</strong>
                                         <ul>
                                             <li>Features such as Wrapped and Daylist were difficult to discover within the app without external guidance.</li>
                                             <li>The naming of Collaborative Playlist was unclear, causing misinterpretation.</li>
-                                            <li><strong>Conclusion</strong>: Even with clear documentation, a non-intuitive UX continues to generate user confusion. Thus, PMs should prioritize the <strong>information architecture of the product</strong> over documentation alone.</li>
+                                            <li><strong>Conclusion</strong>: Despite clear instructions, a non-intuitive UX continues to generate user confusion. Thus, PMs should prioritize the <strong>information architecture of the product</strong> over documentation alone.</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -944,9 +959,9 @@ function initProjectModals() {
                         </li>
                         <li><strong>After Improvements:</strong>
                             <ul>
-                                <li>Step-by-step screenshots and visual separation of instructions clarified what users needed to do and where to find it.</li>
-                                <li>Added concise explanations for unfamiliar terms and clarified the Android device environment, improving navigation intuitiveness.</li>
-                                <li>These changes reduced completion time by <strong>30%</strong>, decreased uncertainty, and enhanced overall efficiency.</li>
+                                <li>Step-by-step visuals and visual separation of instructions clarified what users needed to do and where to find it.</li>
+                                <li>Added brief definitions for unclear terms and specified the Android UI context, improving navigation intuitiveness.</li>
+                                <li>These changes reduced completion time by <strong>30%</strong>, reduced user hesitation, and enhanced overall efficiency.</li>
                             </ul>
                         </li>
                     </ul>
@@ -969,7 +984,7 @@ function initProjectModals() {
                                 <li>Confusion occurred most frequently with <strong>hard-to-discover features</strong>, suggesting a <strong>discoverability problem within Spotify’s interface</strong> rather than a documentation issue.</li>
                             </ul>
                         </li>
-                        <li>The test highlighted that <strong>clear documentation alone cannot fully resolve usability issues</strong>. PMs must understand and design for <strong>information architecture, navigation flow, and terminology</strong> across the product.</li>
+                        <li>The test highlighted that <strong>clear documentation alone cannot fully resolve usability issues</strong>. PMs should focus on and design for <strong>information architecture, navigation flow, and terminology</strong> across the product.</li>
                         <li>This project reinforced the perspective that creating an environment where users can <strong>navigate naturally without relying on documentation</strong> is more important than writing perfect guides. This aligns closely with the core principles of effective onboarding design.</li>
                     </ul>
                 </div>  
@@ -979,9 +994,10 @@ function initProjectModals() {
                 </a>
             `,
             },
+
       uno: {
   title: "UNO Development Based on User Testing",
-  description: " <div style='text-align: left;'> Planned and developed the initial prototype of a Java-based UNO game using real user play data. <br><br>Started with a minimum viable version containing only core features (turn flow and responsiveness), then conducted over 3 rounds of playtesting to identify user confusion factors (delays, dropouts, sequence errors). Based on these insights, improvements were designed focusing on UX and communication structure. <br><br> Through this process, I gained hands-on experience with problem definition, feature prioritization, feedback collection, and refactoring cycles from a product management perspective. </div>",
+  description: " <div style='text-align: left;'> Planned and developed the initial prototype of a Java-based UNO game using based on actual gameplay feedback. <br><br>Started with a minimum viable version containing only core features (turn flow and responsiveness), then conducted over 3 rounds of playtesting to identify user confusion factors (delays, dropouts, sequence errors). Based on these insights, improvements were designed focusing on UX and communication structure. <br><br> Through this process, I gained hands-on experience with problem definition, feature prioritization, feedback collection, and refactoring cycles from a product management perspective. </div>",
   details: `
           <div class="modal-project-detail">
           <h3>Main Tasks & Roles</h3>
@@ -996,20 +1012,20 @@ function initProjectModals() {
           <img src="./static/uno.webp" alt="UNO Project Screenshot" style="width:100%;border-radius:12px;margin-bottom:1rem;" />
           <ul>
               <ul>
-                  <li>Implemented the client-server communication structure directly using Java Sockets.</li>
+                  <li>Built the client-server architecture directly using Java Sockets.</li>
               </ul>
           </ul>
           <ul>
               <li><strong>Feature Improvements Based on User Feedback:</strong>
                   <ul>
-                      <li>Conducted 3 rounds of playtests with 4 team members, identifying UX issues such as failure to recognize turn flow and player dropout during waiting periods.</li>
-                      <li>Analyzed user behavior patterns and introduced a countdown timer, while improving screen transitions for a more intuitive interaction flow.</li>
+                      <li>Conducted 3 rounds of playtests with 4 team members, identifying UX issues such as difficulty following turn flow and players leaving during idle times.</li>
+                      <li>Analyzed user behavior patterns and introduced a countdown indicator, while improving screen transitions for a more intuitive interaction flow.</li>
                   </ul>
               </li>
               <li><strong>Network Exception Handling & Structural Improvements:</strong>
                   <ul>
                       <li>Classified 3 major error scenarios—turn duplication, sequence disruption, and mid-game dropout—and implemented exception handling logic for each.</li>
-                      <li>Optimized the structure to reduce asynchronous communication bottlenecks between client and server.</li>
+                      <li>Optimized the structure to reduce delays caused by asynchronous messaging between client and server.</li>
                   </ul>
               </li>
           </ul>
@@ -1050,8 +1066,8 @@ function initProjectModals() {
 
               <h3>Learnings from a PM Perspective</h3>
               <ul>
-                  <li>Learned the importance of designing and validating UX flows based on user scenarios, beyond simple feature implementation.</li>
-                  <li>Experienced prioritizing user experience flow over feature completeness, adjusting features and priorities based on playtest results—a condensed version of real PM workflows.</li>
+                  <li>Recognized the importance of designing and validating UX flows based on user scenarios, beyond simple feature implementation.</li>
+                  <li>Experienced prioritizing user experience flow over feature richness, adjusting features and priorities based on playtest results—a condensed version of real PM workflows.</li>
                   <li>After building the MVP, also considered future extensions such as integrating AWS for saving game states per user and providing multi-language support for diverse users.
                       <ul>
                           <li>Even though this was a small-scale project, it provided practical experience with the full PM cycle: user needs → MVP development → feedback integration → roadmap design.</li>
@@ -1067,7 +1083,7 @@ function initProjectModals() {
 ,
       youtube: {
             title: "YouTube Trend Analysis",
-            description: '<div style="text-align: left; margin-top: 1rem;">Analyzed YouTube channel metadata and comment data with the goal of developing actionable content strategies that reflect real trends.<br><br>Quantitatively examined upload timing, language usage patterns, and viewer response expressions, then translated findings into insights applicable to content planning.<br><br>Structured real-time trend flows using SQL and extracted meaningful message patterns from user feedback.</div>',
+            description: '<div style="text-align: left; margin-top: 1rem;">Analyzed YouTube channel metadata and comment data with the with the goal of informing actionable content strategies grounded in real viewer behavior.<br><br>Performed quantitative analysis on upload timing, language usage patterns, and viewer response expressions, then translated findings into insights applicable to content planning.<br><br>Mapped real-time trend trajectories using SQL and extracted meaningful message patterns from user feedback.</div>',
             details: `
                     <div class="modal-project-detail">
                         <h3>Project Overview</h3>
@@ -1097,7 +1113,7 @@ function initProjectModals() {
                         <ul>
                             <li><strong>Comment Reaction Analysis</strong></li>
                             <ul>
-                                <li>Measured the <strong>distribution of languages used in comments</strong> and compared how each language contributed to trending performance.</li>
+                                <li>Measured the <strong>distribution of languages used in comments</strong> and compared how each language influenced trending likelihood.</li>
                             </ul>
                         </ul>
 
@@ -1106,7 +1122,7 @@ function initProjectModals() {
                         <ul>
                             <li><strong>Comparison of Trending Ratios by Language</strong></li>
                             <ul>
-                                <li>Extracted <strong>most-liked comment expressions</strong> and identified <strong>language patterns</strong> that foster community engagement, providing guidance for <strong>content messaging design</strong>.</li>
+                                <li>Extracted <strong>most-liked comment expressions</strong> and identified <strong>language patterns</strong> that drive community engagement, providing guidance for <strong>content messaging design</strong>.</li>
                             </ul>
                         </ul>
 
@@ -1115,14 +1131,14 @@ function initProjectModals() {
                         <ul>
                             <li><strong>Results Consolidation & Presentation</strong></li>
                             <ul>
-                                <li>Proposed <strong>strategic improvement directions</strong> based on findings and drafted a <strong>decision-support report</strong> for the team.</li>
+                                <li>Suggested <strong>content optimization strategies</strong> based on findings and drafted a <strong>decision-support report</strong> for the team.</li>
                                 <li>Led the <strong>final presentation</strong>, sharing insights and guiding project direction.</li>
                             </ul>
                         </ul>
 
                         <h3>Technologies & Tools</h3>
                         <ul>
-                            <li><strong>Variation in Trending Entry Time</strong></li>
+                            <li><strong>Trending Speed Analysis</strong></li>
                             <ul>
                                 <li>Analyzed 901 videos and found that the time to enter trending varied by content type. Emotion-driven content (family stories, confessions, breakups, etc.) typically gained traction within 4 hours on average.</li>
                                 <li>Suggested that <strong>emotionally engaging content</strong> can benefit from front-loading strategies (e.g., weekend morning uploads) for faster spread.</li>
@@ -1134,7 +1150,7 @@ function initProjectModals() {
                                 <li>For a global audience, adding English subtitles or narration could increase the likelihood of trending success.</li>
                             </ul>
 
-                            <li><strong>Comment Reaction Pattern Analysis</strong></li>
+                            <li><strong>Comment Engagement Pattern Analysis</strong></li>
                             <ul>
                                 <li>The most liked comments were provocative or meme-like (e.g., “Subscribe and get money”), with similar comments frequently recurring at the top.</li>
                                 <li>Learned that incorporating meme elements or community-driven phrases into content can enhance engagement and algorithmic reach.</li>
@@ -1142,8 +1158,8 @@ function initProjectModals() {
 
                             <li><strong>Learnings from a PM Perspective</strong></li>
                             <ul>
-                                <li>Learned the importance of clearly defining analysis goals and validating them with data. Instead of just checking metrics, I focused on the question of <strong>“What are we trying to improve?”</strong>.</li>
-                                <li>By analyzing trend timing, comment patterns, and language distribution, I identified links between user behavior and content strategy, gaining experience in <strong>data-driven strategic planning without relying on initial hypotheses</strong>.</li>
+                                <li>Recognized the value of clearly framing analytical objectives and validating them with data. Instead of just checking metrics, I focused on the question of <strong>“What are we trying to improve?”</strong>.</li>
+                                <li>By analyzing trend timing, comment patterns, and language distribution, I identified links between user behavior and content strategy, gaining experience in <strong>exploratory, data-driven strategy development.</strong>.</li>
                                 <li>Realized that in practice, this type of analysis could lead to A/B testing, thumbnail/copy optimization, and upload schedule adjustments—proving that <strong>data can serve as a practical decision-making tool for product strategy</strong>.</li>
                             </ul>    
                         </ul>
@@ -1418,8 +1434,10 @@ function initSmoothScrolling() {
     
     if (ctaSecondary) {
         ctaSecondary.addEventListener('click', () => {
-            // Simular descarga de CV
-            showNotification('이력서 다운로드가 시작됩니다.', 'success');
+            // Simular descarga de CV con mensaje localizado
+            const lang = document.documentElement.lang || 'ko';
+            const msg = (lang === 'en') ? 'Resume download starting.' : '이력서 다운로드가 시작됩니다.';
+            showNotification(msg, 'success');
         });
     }
     
