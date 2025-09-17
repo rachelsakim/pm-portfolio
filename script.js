@@ -83,8 +83,8 @@ const translations = {
         nav_projects: "Projects",
         nav_skills: "Skills",
         nav_contact: "Contact",
-        hero_line1: "Aspiring PM with hands-on experience across",
-        hero_line1b: "UX research, development implementation, data analysis, and process optimization.",
+        hero_line1: "Aspiring PM with hands-on experience",
+        hero_line1b: "across UX research, implementation, data analysis, and process optimization.",
         hero_line2: " ",
         hero_line3: " ",
         hero_desc: "Through real-world projects like user testing and inventory automation, I’ve driven the full product cycle from problem definition to outcome validation.",
@@ -177,6 +177,12 @@ function setLanguage(lang) {
     
     // Cambiar atributo lang del HTML
     document.documentElement.lang = lang;
+    // Cambiar clase en body para estilos dependientes de idioma
+    if (lang === 'ko') {
+        document.body.classList.add('lang-ko');
+    } else {
+        document.body.classList.remove('lang-ko');
+    }
     
     if (lang === 'ko') {
         // Restaurar textos coreanos originales desde el HTML
