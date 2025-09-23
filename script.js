@@ -146,7 +146,7 @@ const translations = {
         skills_category3: "Collaboration Tools",
         skill_level_advanced: "Advanced",
         skill_level_intermediate: "Intermediate",
-        skill_onedrive: "Collaboration with OneDrive",
+        skill_notion: "Notion",
         
         // Contact
         contact_title: "Contact",
