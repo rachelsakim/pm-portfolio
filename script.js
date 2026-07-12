@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSkillBars();
     initProjectModals();
     initContactForm(); // ahora con envío real
+    initExperienceSystem();
     initMobileMenu();
     initSmoothScrolling();
 });
@@ -157,6 +158,18 @@ const translations = {
         form_message: "Enter your message...",
         form_submit: "Send Message",
         
+        // Experience
+        experience_title: "Experience",
+        experience_subtitle: "Product planning and operations experience",
+        exp_overview: "Overview",
+        exp_problem: "Problem",
+        exp_role: "My Role",
+        exp_decisions: "Key Decisions",
+        exp_reflection: "Key Takeaways",
+        exp_challenge: "Biggest Challenge",
+        exp_tradeoff: "Trade-offs",
+        exp_kpi: "Success Metrics",
+        
         // Footer
         footer_desc: "Aspiring PM with user-centered thinking and data-driven execution skills",
         footer_rights: "All rights reserved."
@@ -257,6 +270,23 @@ function setLanguage(lang) {
     // Actualizar los detalles de proyectos en el modal si está abierto
     if (typeof updateModalContent === 'function') {
         updateModalContent();
+    }
+    
+    // Re-renderizar las tarjetas de experiencia con el nuevo idioma
+    if (typeof window.renderExperienceCards === 'function') {
+        window.renderExperienceCards(lang);
+    }
+    
+    // Actualizar el modal de experiencia si está abierto
+    const expModal = document.getElementById('experienceModal');
+    if (expModal && expModal.style.display === 'block') {
+        const activeCard = document.querySelector('.exp-card.active');
+        if (activeCard) {
+            const expId = activeCard.dataset.experience;
+            // Cerrar y reabrir no es ideal; mejor forzamos render silencioso
+            expModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
     }
 }
 
@@ -1188,6 +1218,227 @@ function initProjectModals() {
             || ((navigator.language || navigator.userLanguage || '').startsWith('ko') ? 'ko' : 'en');
         window.projectDetails = initialLang === 'en' ? projectDetailsEn : projectDetailsKo;
 
+// ============================================================
+// DATOS DE EXPERIENCIA PROFESIONAL
+// ============================================================
+
+const experienceListKo = [
+    {
+        id: 'exp1',
+        title: "창작자 후원 기반 콘텐츠 플랫폼",
+        tag: "플랫폼 기획",
+        icon: "fa-hand-holding-heart",
+        summary: "창작자가 콘텐츠를 등록하고 독자가 후원을 통해 콘텐츠를 열람할 수 있는 Creator Economy 플랫폼입니다. 일회성 후원 모델과 콘텐츠 접근 권한, 운영 정책을 중심으로 MVP를 기획했습니다.",
+        roles: ["제품 요구사항 정의", "User Flow 설계", "운영 정책 설계"],
+        overview: "창작자가 콘텐츠를 등록하고 독자가 후원을 통해 콘텐츠를 열람할 수 있는 Creator Economy 플랫폼입니다. 일회성 후원 모델과 콘텐츠 접근 권한, 운영 정책을 중심으로 MVP를 기획했습니다.",
+        problem: "창작자의 수익 창출과 독자의 콘텐츠 소비 경험을 동시에 고려해야 했습니다. 또한 후원, 콘텐츠 접근 권한, 환불 및 제재 등 다양한 운영 정책을 정의할 필요가 있었습니다.",
+        myRoles: [
+            "제품 요구사항 정의",
+            "User Flow 설계",
+            "콘텐츠 접근 권한 정책 설계",
+            "후원 및 운영 정책 정의",
+            "개발·디자인 협업"
+        ],
+        decisions: [
+            { title: "콘텐츠 접근 정책 설계", desc: "일회성 후원 여부에 따라 콘텐츠 열람 권한을 제어하는 정책을 정의했습니다." },
+            { title: "Creator 운영 정책", desc: "창작자가 작품, 회차, 가격, 공개 범위를 직접 관리할 수 있도록 설계했습니다." },
+            { title: "운영 및 정산 정책", desc: "환불, 제재, 정산 예외 상황을 고려하여 운영 정책과 비즈니스 로직을 정의했습니다." }
+        ],
+        reflection: "콘텐츠 플랫폼은 기능보다 수익 모델과 운영 정책이 제품 신뢰도를 결정한다는 점을 배웠습니다.",
+        challenge: "이미 정산이 완료된 콘텐츠에 대해 환불이 발생하는 경우 운영 정책을 어떻게 정의할지 고민했습니다.",
+        tradeoff: "운영 복잡도를 줄이기 위해 자동 정산보다는 명확한 운영 정책과 예외 처리 기준을 우선 설계했습니다.",
+        kpi: ["후원 전환율", "콘텐츠 열람률", "창작자 활성화율", "재방문율"]
+    },
+    {
+        id: 'exp2',
+        title: "명품 중고가구 Marketplace",
+        tag: "커머스 기획",
+        icon: "fa-couch",
+        summary: "판매, 위탁, 렌탈을 하나의 플랫폼에서 제공하는 명품 중고가구 Marketplace입니다. 구매자, 개인 셀러, 사업자 셀러, 관리자가 함께 사용하는 멀티사이드 커머스 플랫폼으로, 거래 유형과 사용자 역할에 따른 운영 정책을 설계하는 것이 핵심이었습니다.",
+        roles: ["PRD 정의", "IA 설계", "RBAC 정의"],
+        overview: "판매, 위탁, 렌탈을 하나의 플랫폼에서 제공하는 명품 중고가구 Marketplace입니다. 구매자, 개인 셀러, 사업자 셀러, 관리자가 함께 사용하는 멀티사이드 커머스 플랫폼으로, 거래 유형과 사용자 역할에 따른 운영 정책을 설계하는 것이 핵심이었습니다.",
+        problem: "거래 방식과 사용자 역할에 따라 필요한 기능과 권한이 모두 달랐습니다. 하나의 서비스에서 다양한 판매 방식을 지원하면서도 운영 효율과 사용자 경험을 모두 고려한 정책 설계가 필요했습니다.",
+        myRoles: [
+            "제품 요구사항(PRD) 정의",
+            "User Flow 및 IA 설계",
+            "역할 기반 권한(RBAC) 정의",
+            "거래 유형별 비즈니스 로직 설계",
+            "개발·디자인 협업 및 기능 구체화"
+        ],
+        decisions: [
+            { title: "역할 기반 권한 설계", desc: "개인 셀러와 사업자 셀러의 권한을 구분하여 운영 정책을 설계했습니다. 사업자 셀러는 상품 등록부터 배송 관리까지 수행할 수 있도록 하고, 개인 셀러는 주문 확인 중심으로 제한하여 운영 리스크를 줄였습니다." },
+            { title: "거래 유형별 운영 프로세스 정의", desc: "판매, 위탁, 렌탈마다 다른 상품 등록 및 운영 프로세스를 정의했습니다. 위탁 상품은 계약 이후 등록되는 흐름을 반영하고, 일반 판매는 관리자가 직접 등록하도록 설계했습니다." },
+            { title: "운영 관점의 정책 설계", desc: "관리자가 상품 가격을 관리하도록 하여 가격 정책의 일관성을 유지하고, 운영자가 실제 사용하는 관리 프로세스까지 함께 설계했습니다." }
+        ],
+        reflection: "다양한 이해관계자가 사용하는 서비스에서는 기능보다 운영 정책과 권한 설계가 제품 완성도에 큰 영향을 준다는 점을 배웠습니다.",
+        challenge: "판매, 위탁, 렌탈을 하나의 서비스에서 일관된 경험으로 제공하면서도 운영 복잡도를 최소화하는 구조를 설계하는 것이 가장 어려웠습니다.",
+        tradeoff: "권한을 세분화할수록 유연성은 높아졌지만 구현 복잡도도 증가했습니다. 초기 MVP에서는 운영 안정성을 우선하여 일부 권한을 관리자 중심으로 설계했습니다.",
+        kpi: ["상품 등록 완료율", "구매 전환율", "셀러 활성화율", "주문 처리 시간"]
+    },
+    {
+        id: 'exp3',
+        title: "헤어 디자이너 예약·매칭 플랫폼",
+        tag: "서비스 기획",
+        icon: "fa-calendar-check",
+        summary: "1인 헤어샵을 중심으로 고객과 헤어디자이너를 연결하는 예약·매칭 플랫폼입니다. 예약 기능뿐 아니라 디자이너 운영 방식에 맞는 예약 정책과 스케줄 관리 기능을 함께 설계했습니다.",
+        roles: ["요구사항 정의", "User Flow 설계", "비즈니스 로직 설계"],
+        overview: "1인 헤어샵을 중심으로 고객과 헤어디자이너를 연결하는 예약·매칭 플랫폼입니다. 예약 기능뿐 아니라 디자이너 운영 방식에 맞는 예약 정책과 스케줄 관리 기능을 함께 설계했습니다.",
+        problem: "예약 서비스는 단순히 시간만 선택하는 기능이 아니라 디자이너의 근무 방식과 예약 운영 정책까지 고려해야 했습니다. 예약 중복 허용 여부, 노쇼 처리, 스케줄 관리 등 다양한 운영 정책이 필요했습니다.",
+        myRoles: [
+            "제품 요구사항 정의",
+            "예약 User Flow 설계",
+            "예약 정책 및 비즈니스 로직 설계",
+            "역할별 권한 정의",
+            "개발·디자인 협업"
+        ],
+        decisions: [
+            { title: "예약 정책 설계", desc: "디자이너의 근무 일정과 예약 가능 시간을 기반으로 예약, 변경, 취소 프로세스를 정의했습니다." },
+            { title: "예약 중복 정책", desc: "디자이너가 예약 중복 허용 여부를 직접 설정할 수 있도록 설계하여 다양한 운영 방식에 대응할 수 있도록 했습니다." },
+            { title: "운영 정책 정의", desc: "노쇼 발생 시 운영자가 직접 취소할 수 있도록 정책을 정의하고, 예약 운영의 유연성을 고려했습니다." }
+        ],
+        reflection: "예약 서비스는 화면보다 운영 정책이 사용자 경험을 크게 좌우한다는 점을 경험했습니다.",
+        challenge: "예약 중복을 허용할 경우 운영 유연성은 높아지지만 예약 관리 복잡도도 증가하기 때문에 적절한 정책을 정의하는 것이 가장 어려웠습니다.",
+        tradeoff: "모든 예약을 자동으로 제어하기보다 디자이너가 직접 운영 방식을 선택할 수 있도록 설계하여 서비스 유연성을 확보했습니다.",
+        kpi: ["예약 완료율", "예약 변경률", "노쇼율", "디자이너 재예약률"]
+    },
+    {
+        id: 'exp4',
+        title: "글로벌 K-Beauty Commerce Platform",
+        tag: "커머스 기획",
+        icon: "fa-globe",
+        summary: "유럽 시장을 대상으로 한 K-Beauty Commerce 플랫폼입니다. 피부 진단을 기반으로 개인화된 상품 추천을 제공하고, Bubble과 Shopify를 연계하여 구매 경험을 설계했습니다.",
+        roles: ["User Journey 설계", "플랫폼 연계 기획", "요구사항 정의"],
+        overview: "유럽 시장을 대상으로 한 K-Beauty Commerce 플랫폼입니다. 피부 진단을 기반으로 개인화된 상품 추천을 제공하고, Bubble과 Shopify를 연계하여 구매 경험을 설계했습니다.",
+        problem: "사용자는 수많은 화장품 중 자신의 피부에 맞는 제품을 찾기 어려웠습니다. 또한 피부 진단부터 상품 추천, 구매까지 이어지는 사용자 경험을 하나의 흐름으로 연결할 필요가 있었습니다.",
+        myRoles: [
+            "제품 요구사항 정의",
+            "User Journey 설계",
+            "Bubble-Shopify 연계 구조 기획",
+            "사용자 플로우 설계",
+            "개발·디자인 협업"
+        ],
+        decisions: [
+            { title: "개인화된 구매 경험 설계", desc: "피부 진단 결과를 기반으로 상품 추천과 이메일 발송까지 이어지는 사용자 여정을 설계했습니다." },
+            { title: "플랫폼 연계 구조 정의", desc: "Bubble에서 회원 및 진단 데이터를 관리하고 Shopify에서 커머스를 운영하도록 데이터 흐름을 정의했습니다." },
+            { title: "입점형 커머스 운영 구조", desc: "브랜드 입점, 상품 등록, 재고 관리, 주문 및 배송으로 이어지는 운영 프로세스를 설계했습니다." }
+        ],
+        reflection: "개인화 기능은 추천 알고리즘뿐 아니라 사용자 여정을 자연스럽게 연결하는 설계가 중요하다는 점을 배웠습니다.",
+        challenge: "Bubble과 Shopify를 함께 사용하는 구조에서 어떤 데이터를 어느 플랫폼에서 관리할지 정의하는 것이 가장 어려웠습니다.",
+        tradeoff: "유연한 서비스 구현을 위해 Bubble을 활용했지만, Shopify와의 데이터 동기화 및 기술적 제약을 함께 고려해야 했습니다.",
+        kpi: ["피부 진단 완료율", "추천 상품 클릭률", "구매 전환율", "이메일 오픈율"]
+    }
+];
+
+const experienceListEn = [
+    {
+        id: 'exp1',
+        title: "Creator Sponsorship Platform",
+        tag: "Platform Planning",
+        icon: "fa-hand-holding-heart",
+        summary: "A Creator Economy platform where creators publish premium content and users unlock access through one-time sponsorships. The MVP focused on designing the sponsorship model, content access control, and operational policies.",
+        roles: ["PRD Definition", "User Flow Design", "Policy Design"],
+        overview: "A Creator Economy platform where creators publish premium content and users unlock access through one-time sponsorships. The MVP focused on designing the sponsorship model, content access control, and operational policies that support both creators and platform administrators.",
+        problem: "The platform needed to balance creator monetization with a seamless user experience while establishing clear operational policies for sponsorships, content access, refunds, moderation, and settlements.",
+        myRoles: [
+            "Defined Product Requirements (PRD)",
+            "Designed User Flows",
+            "Designed content access policies",
+            "Defined sponsorship and operational policies",
+            "Collaborated with designers and engineers"
+        ],
+        decisions: [
+            { title: "Content Access Control", desc: "Designed an access policy allowing users to unlock premium content through one-time sponsorships while maintaining a simple purchasing experience." },
+            { title: "Creator Management", desc: "Designed creator-facing features that enabled creators to manage works, episodes, pricing, and visibility settings independently." },
+            { title: "Operational Policies", desc: "Defined business rules for moderation, refunds, and settlement exceptions to support platform operations." }
+        ],
+        reflection: "This project taught me that trust in creator platforms depends as much on operational policies and monetization design as it does on product features.",
+        challenge: "One of the biggest challenges was determining how refund requests should be handled after creator payouts had already been settled, requiring operational consistency while protecting both creators and users.",
+        tradeoff: "Rather than prioritizing automated settlement during the MVP stage, we prioritized clear operational policies and exception handling to reduce implementation complexity.",
+        kpi: ["Sponsorship Conversion Rate", "Premium Content View Rate", "Creator Activation Rate", "Returning User Rate"]
+    },
+    {
+        id: 'exp2',
+        title: "Luxury Furniture Marketplace",
+        tag: "Commerce Planning",
+        icon: "fa-couch",
+        summary: "A multi-sided marketplace supporting luxury furniture sales, consignment, and rentals. The platform served buyers, individual sellers, business sellers, and administrators through role-specific workflows and operational policies.",
+        roles: ["PRD Definition", "IA Design", "RBAC Design"],
+        overview: "A multi-sided marketplace supporting luxury furniture sales, consignment, and rentals. The platform served buyers, individual sellers, business sellers, and administrators through role-specific workflows and operational policies.",
+        problem: "Each transaction type required different operational rules, while each user role needed different permissions. The challenge was creating a unified product experience without increasing operational complexity.",
+        myRoles: [
+            "Defined Product Requirements (PRD)",
+            "Designed User Flows and Information Architecture (IA)",
+            "Defined Role-Based Access Control (RBAC)",
+            "Designed business logic for different transaction types",
+            "Collaborated with designers and engineers"
+        ],
+        decisions: [
+            { title: "Role-Based Access Control", desc: "Designed different permission models for individual and business sellers. Business sellers could manage products through fulfillment, while individual sellers were limited to order confirmation." },
+            { title: "Transaction Workflows", desc: "Designed separate operational workflows for direct sales, consignment, and rental services, reflecting each business model's requirements." },
+            { title: "Administrative Operations", desc: "Designed administrator workflows for product pricing and operational management to ensure pricing consistency across the platform." }
+        ],
+        reflection: "This project reinforced that well-defined operational policies and permission structures are fundamental to building scalable marketplace products.",
+        challenge: "The most challenging part was designing a consistent user experience while supporting multiple transaction models with different operational requirements.",
+        tradeoff: "Although granular permissions provided greater flexibility, they also increased implementation complexity. For the MVP, operational stability was prioritized by centralizing selected administrative permissions.",
+        kpi: ["Product Listing Completion Rate", "Purchase Conversion Rate", "Seller Activation Rate", "Order Processing Time"]
+    },
+    {
+        id: 'exp3',
+        title: "Hair Designer Reservation & Matching Platform",
+        tag: "Service Planning",
+        icon: "fa-calendar-check",
+        summary: "A reservation and matching platform connecting customers with independent hair designers. The platform focused on reservation management while supporting flexible scheduling policies tailored to salon operations.",
+        roles: ["Requirements Definition", "User Flow Design", "Business Logic Design"],
+        overview: "A reservation and matching platform connecting customers with independent hair designers. The platform focused on reservation management while supporting flexible scheduling policies tailored to salon operations.",
+        problem: "Reservation systems require more than selecting a time slot. Policies for overlapping reservations, no-shows, scheduling, and operational flexibility had to be designed around the needs of individual designers.",
+        myRoles: [
+            "Defined Product Requirements (PRD)",
+            "Designed reservation User Flows",
+            "Defined reservation policies and business logic",
+            "Designed role-based permissions",
+            "Collaborated with designers and engineers"
+        ],
+        decisions: [
+            { title: "Reservation Workflow", desc: "Designed reservation, rescheduling, and cancellation flows based on designers' availability and working schedules." },
+            { title: "Reservation Flexibility", desc: "Allowed designers to configure whether overlapping reservations were permitted, enabling different operational styles." },
+            { title: "No-show Policy", desc: "Designed operational policies allowing manual cancellation of no-show reservations while maintaining flexibility for salon operations." }
+        ],
+        reflection: "This project showed me that reservation platforms are shaped more by operational policies than by interface design alone.",
+        challenge: "The biggest challenge was balancing reservation flexibility with operational simplicity when supporting configurable overlapping bookings.",
+        tradeoff: "Instead of enforcing a fully automated reservation system, we prioritized operational flexibility by allowing designers to configure their own booking policies.",
+        kpi: ["Reservation Completion Rate", "Reservation Modification Rate", "No-show Rate", "Customer Rebooking Rate"]
+    },
+    {
+        id: 'exp4',
+        title: "Global K-Beauty Commerce Platform",
+        tag: "Commerce Planning",
+        icon: "fa-globe",
+        summary: "A K-Beauty commerce platform built for the European market. The platform delivered personalized product recommendations based on skin analysis while integrating Bubble and Shopify.",
+        roles: ["User Journey Design", "Platform Integration", "Requirements Definition"],
+        overview: "A K-Beauty commerce platform built for the European market. The platform delivered personalized product recommendations based on skin analysis while integrating Bubble and Shopify to create a seamless shopping experience.",
+        problem: "Users often struggle to find skincare products that match their skin concerns. The challenge was connecting skin diagnosis, personalized recommendations, and purchasing into one continuous user journey.",
+        myRoles: [
+            "Defined Product Requirements (PRD)",
+            "Designed the User Journey",
+            "Planned the Bubble-Shopify integration architecture",
+            "Designed user flows",
+            "Collaborated with designers and engineers"
+        ],
+        decisions: [
+            { title: "Personalized Shopping Experience", desc: "Designed an end-to-end journey connecting skin diagnosis, personalized recommendations, and follow-up email delivery." },
+            { title: "Platform Integration", desc: "Defined data ownership and synchronization between Bubble for user management and Shopify for commerce operations." },
+            { title: "Commerce Operations", desc: "Designed operational workflows covering brand onboarding, product management, inventory management, order processing, and fulfillment." }
+        ],
+        reflection: "This project taught me that successful personalization is achieved not only through recommendation logic but also through designing a seamless user journey across multiple systems.",
+        challenge: "The most difficult challenge was determining which data should be managed within Bubble versus Shopify while maintaining a reliable synchronization strategy.",
+        tradeoff: "Bubble offered flexibility for custom product experiences, but integrating it with Shopify required careful consideration of synchronization and platform limitations.",
+        kpi: ["Skin Diagnosis Completion Rate", "Recommendation CTR", "Purchase Conversion Rate", "Email Open Rate"]
+    }
+];
+
+window.expDataKo = experienceListKo;
+window.expDataEn = experienceListEn;
+
     // Función para actualizar el contenido del modal según el idioma
     window.updateModalContent = function() {
         if (modal.style.display === 'block') {
@@ -1262,6 +1513,171 @@ function initProjectModals() {
             closeModalFunction();
         }
     });
+}
+
+// Sistema de experiencia profesional (cards + modal)
+function initExperienceSystem() {
+    const grid = document.querySelector('.experience-grid');
+    const modal = document.getElementById('experienceModal');
+    const modalContent = document.getElementById('expModalContent');
+    const closeBtn = modal ? modal.querySelector('.close-modal') : null;
+
+    if (!grid) return;
+
+    function renderCards(lang) {
+        const data = lang === 'en' ? window.expDataEn : window.expDataKo;
+        if (!data) return;
+        grid.innerHTML = '';
+
+        data.forEach(exp => {
+            const card = document.createElement('div');
+            card.className = 'exp-card';
+            card.dataset.experience = exp.id;
+            card.innerHTML = `
+                <div class="exp-card-inner">
+                    <div class="exp-header">
+                        <div class="exp-icon"><i class="fas ${exp.icon}"></i></div>
+                        <div class="exp-meta">
+                            <h3>${exp.title}</h3>
+                            <span class="exp-tag">${exp.tag}</span>
+                        </div>
+                    </div>
+                    <div class="exp-content">
+                        <p>${exp.summary}</p>
+                        <div class="exp-roles">
+                            ${exp.roles.map(r => `<span class="role-tag">${r}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            card.addEventListener('click', () => {
+                openExpModal(exp.id);
+            });
+
+            grid.appendChild(card);
+        });
+    }
+
+    function getLabel(key) {
+        const lang = document.documentElement.lang || 'ko';
+        if (lang === 'en') {
+            const labels = {
+                overview: 'Overview',
+                problem: 'Problem',
+                myRole: 'My Role',
+                decisions: 'Key Decisions',
+                reflection: 'Key Takeaways',
+                challenge: 'Biggest Challenge',
+                tradeoff: 'Trade-offs',
+                kpi: 'Success Metrics'
+            };
+            return labels[key] || key;
+        }
+        const labels = {
+            overview: '개요',
+            problem: '문제 정의',
+            myRole: '담당 역할',
+            decisions: '주요 의사결정',
+            reflection: '학습 및 인사이트',
+            challenge: '가장 어려웠던 의사결정',
+            tradeoff: 'Trade-off',
+            kpi: '출시 후 확인하고 싶은 KPI'
+        };
+        return labels[key] || key;
+    }
+
+    function openExpModal(expId) {
+        const lang = document.documentElement.lang || 'ko';
+        const data = lang === 'en' ? window.expDataEn : window.expDataKo;
+        const exp = data ? data.find(e => e.id === expId) : null;
+        if (!exp || !modal) return;
+
+        const decisionsHtml = exp.decisions.map(d =>
+            `<li><strong>${d.title}:</strong> ${d.desc}</li>`
+        ).join('');
+
+        const rolesHtml = exp.myRoles.map(r => `<li>${r}</li>`).join('');
+
+        const kpiHtml = exp.kpi.map(k => `<span class="kpi-badge">${k}</span>`).join('');
+
+        modalContent.innerHTML = `
+            <div class="modal-header">
+                <h2>${exp.title}</h2>
+            </div>
+            <div class="modal-project-detail">
+                <h3>${getLabel('overview')}</h3>
+                <p>${exp.overview}</p>
+
+                <h3>${getLabel('problem')}</h3>
+                <p>${exp.problem}</p>
+
+                <h3>${getLabel('myRole')}</h3>
+                <ul>${rolesHtml}</ul>
+
+                <h3>${getLabel('decisions')}</h3>
+                <ul>${decisionsHtml}</ul>
+
+                <h3>${getLabel('reflection')}</h3>
+                <p>${exp.reflection}</p>
+
+                <h3>${getLabel('challenge')}</h3>
+                <p>${exp.challenge}</p>
+
+                <h3>${getLabel('tradeoff')}</h3>
+                <p>${exp.tradeoff}</p>
+
+                <h3>${getLabel('kpi')}</h3>
+                <div class="kpi-list">${kpiHtml}</div>
+            </div>
+        `;
+
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(() => {
+            const content = modal.querySelector('.modal-content');
+            if (content) {
+                content.style.transform = 'scale(1)';
+                content.style.opacity = '1';
+            }
+        }, 10);
+    }
+
+    // Close modal handlers
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeExpModal);
+    }
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeExpModal();
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.style.display === 'block') {
+            closeExpModal();
+        }
+    });
+
+    function closeExpModal() {
+        if (!modal) return;
+        const content = modal.querySelector('.modal-content');
+        if (content) {
+            content.style.transform = 'scale(0.9)';
+            content.style.opacity = '0';
+        }
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+
+    // Store render function globally for language switching
+    window.renderExperienceCards = renderCards;
+
+    // Initial render
+    const currentLang = document.documentElement.lang || 'ko';
+    renderCards(currentLang);
 }
 
 // Formulario de contacto
