@@ -1384,7 +1384,7 @@ const experienceListEn = [
     },
     {
         id: 'exp3',
-        title: "Hair Designer Reservation & Matching Platform",
+        title: "Hairshop Booking Platform",
         tag: "Service Planning",
         icon: "fa-calendar-check",
         summary: "A reservation and matching platform connecting customers with independent hair designers. The platform focused on reservation management while supporting flexible scheduling policies tailored to salon operations.",
