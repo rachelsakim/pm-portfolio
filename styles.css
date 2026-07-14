@@ -31,7 +31,8 @@ html {
 
 body {
     font-family: var(--font-family);
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.7;
     color: var(--dark-gray);
     overflow-x: hidden;
 }
@@ -262,7 +263,7 @@ body {
 
 .hero-title {
     /* Fluid typography with sane min/max to keep it readable at high zoom */
-    font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
+    font-size: clamp(2.5rem, 4.5vw + 0.5rem, 4rem);
     font-weight: 900;
     line-height: 1.3;
     /* Avoid fixed widths; allow the title to shrink/wrap naturally */
@@ -278,7 +279,7 @@ body {
 
 /* Make hero title slightly smaller in English */
 html[lang="en"] .hero-title {
-    font-size: clamp(1.4rem, 2.6vw + 0.2rem, 2.8rem);
+    font-size: clamp(1.8rem, 3vw + 0.2rem, 3.2rem);
 }
 
 .title-line {
@@ -314,7 +315,7 @@ body.lang-ko .title-highlight2 {
 }
 
 .hero-description {
-    font-size: clamp(1rem, 1.2vw + 0.2rem, 1.2rem);
+    font-size: clamp(1.15rem, 1.4vw + 0.2rem, 1.35rem);
     color: var(--text-gray);
     margin-bottom: 2rem;
     line-height: 1.8;
@@ -322,7 +323,7 @@ body.lang-ko .title-highlight2 {
 
 /* Make hero description a bit smaller in English for better balance */
 html[lang="en"] .hero-description {
-    font-size: clamp(0.95rem, 1vw + 0.15rem, 1.05rem);
+    font-size: clamp(1.1rem, 1.2vw + 0.15rem, 1.25rem);
 }
 
 .hero-cta {
@@ -341,7 +342,7 @@ html[lang="en"] .hero-description {
     padding: 1rem 2rem;
     border-radius: var(--border-radius);
     font-weight: 600;
-    font-size: clamp(0.95rem, 0.6vw + 0.5rem, 1rem);
+    font-size: clamp(1.05rem, 0.7vw + 0.5rem, 1.15rem);
     cursor: pointer;
     transition: var(--transition);
     border: none;
@@ -349,7 +350,7 @@ html[lang="en"] .hero-description {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 9rem;
+    min-width: 10rem;
 }
 
 .cta-primary {
@@ -476,7 +477,7 @@ html[lang="en"] .hero-description {
 }
 
 .section-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     background: var(--purple-gradient);
@@ -486,9 +487,9 @@ html[lang="en"] .hero-description {
 }
 
 .section-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     color: var(--text-gray);
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
 }
 
@@ -534,7 +535,7 @@ html[lang="en"] .hero-description {
 }
 
 .about-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--dark-gray);
@@ -543,6 +544,7 @@ html[lang="en"] .hero-description {
 .about-card p {
     color: var(--text-gray);
     line-height: 1.7;
+    font-size: 1.05rem;
 }
 
 .about-summary {
@@ -553,7 +555,7 @@ html[lang="en"] .hero-description {
 }
 
 .summary-content h3 {
-    font-size: 2rem;
+    font-size: 2.3rem;
     text-align: center;
     margin-bottom: 2rem;
     color: var(--dark-gray);
@@ -580,7 +582,7 @@ html[lang="en"] .hero-description {
 }
 
 .achievement-text {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     color: var(--text-gray);
     font-weight: 500;
 }
@@ -632,7 +634,7 @@ html[lang="en"] .hero-description {
 }
 
 .project-meta h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
@@ -670,6 +672,7 @@ html[lang="en"] .hero-description {
     color: var(--text-gray);
     margin-bottom: 1.5rem;
     line-height: 1.7;
+    font-size: 1.05rem;
 }
 
 .project-tech {
@@ -764,7 +767,7 @@ html[lang="en"] .hero-description {
 }
 
 .exp-meta h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--dark-gray);
@@ -791,7 +794,7 @@ html[lang="en"] .hero-description {
     color: var(--text-gray);
     margin-bottom: 1.5rem;
     line-height: 1.7;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
 }
 
 .exp-roles {
@@ -887,7 +890,7 @@ html[lang="en"] .hero-description {
 }
 
 .skill-category h3 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
     margin-bottom: 2rem;
     color: var(--dark-gray);
@@ -1110,13 +1113,13 @@ html[lang="en"] .hero-description {
     }
     
     .hero-title {
-        font-size: clamp(1.75rem, 6vw, 2.5rem);
-        max-inline-size: 36rem;
+        font-size: clamp(2rem, 7vw, 3rem);
+        max-inline-size: 40rem;
     }
 
     /* English-specific reduction on tablet widths */
     html[lang="en"] .hero-title {
-        font-size: clamp(1.35rem, 4.8vw, 2.05rem);
+        font-size: clamp(1.6rem, 5.5vw, 2.4rem);
     }
     
     .hero-cta {
@@ -1126,7 +1129,7 @@ html[lang="en"] .hero-description {
     
     .section-title {
         margin-top: 0px;
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     
     .about-grid {
@@ -1171,13 +1174,13 @@ html[lang="en"] .hero-description {
     }
     
     .hero-title {
-        font-size: clamp(1.5rem, 8vw, 2rem);
-        max-inline-size: 28rem;
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
+        max-inline-size: 32rem;
     }
 
     /* English-specific reduction on mobile widths */
     html[lang="en"] .hero-title {
-        font-size: clamp(1.25rem, 6.4vw, 1.7rem);
+        font-size: clamp(1.5rem, 7vw, 2rem);
     }
     
     .section-header {
