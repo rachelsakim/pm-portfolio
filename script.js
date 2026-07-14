@@ -171,7 +171,7 @@ const translations = {
         exp_kpi: "Success Metrics",
         
         // Footer
-        footer_desc: "Aspiring PM with user-centered thinking and data-driven execution skills",
+        footer_desc: "Product Manager focused on intuitive user experiences and product strategy",
         footer_rights: "All rights reserved."
     },
     ko: {
